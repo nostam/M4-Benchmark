@@ -1,0 +1,397 @@
+/********************** Sidebar **********************/
+
+aside {
+  background-color: #040404;
+  color: #b3b3b3;
+  max-height: calc(100vh - 90px);
+  height: 100%;
+  top: 0px;
+  max-width: 232px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.logo {
+  width: auto;
+  height: 4rem;
+  padding-top: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.search-button {
+  padding: 2px !important;
+}
+.menu {
+  font-size: 0.9rem;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+}
+.menu a {
+  color: #b3b3b3;
+  margin-left: 3px;
+  z-index: 1;
+}
+.menu a:hover {
+  text-decoration: none;
+  color: white;
+  transition: 0.5s;
+}
+
+/* .menu ul {
+	list-style-type: none;
+	font-size: 0.9rem;
+	margin-bottom: 0;
+  }
+  .menu ul li {
+	display: flex;
+	align-content: flex-start;
+	font-size: 0.9rem;
+	margin: 1rem auto;
+
+  } */
+
+li {
+  list-style: none;
+}
+
+.menu .col:after {
+  display: inline-block;
+  content: "";
+  background-color: limegreen;
+  transform: scaleX(0);
+  transition: 300ms ease-in-out;
+  z-index: 1000;
+  position: absolute;
+  left: -10px;
+  bottom: -5px;
+  height: 150%;
+  width: 2.5px;
+}
+
+.menu .col:hover:after {
+  transform: scaleX(1);
+  z-index: 1000;
+}
+
+.menu > .col > a > i {
+  /* fa fonts each icon have different width, aligning Home, Search, Your Library at the same line */
+  width: 40px;
+}
+.menu .col > a {
+  display: flex;
+  align-items: center;
+}
+.menu .col > a > img {
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+}
+.menu i {
+  padding-right: 20px;
+}
+.menu h6 {
+  padding-left: 35px;
+}
+.menu hr {
+  border: 0;
+  clear: both;
+  display: block;
+  width: 96%;
+  background-color: #b3b3b3;
+  height: 1px;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+
+/* .menu col:active::after {
+	border-left: solid 2px limegreen;
+	content: "";
+	display: block;
+	position: absolute;
+	margin-top: -8px;
+	margin-left: -8px;
+
+	transform: scaleX(0);
+	transition: 300ms ease-in-out;
+	z-index: 1000;
+  } */
+
+.menu li:hover a {
+  color: #fff;
+}
+.list-container {
+  height: calc(100vh - 330px - 60px - 90px - 0px);
+  display: flex;
+  flex-direction: column;
+}
+
+.playlists {
+  position: relative;
+  padding-left: 15%;
+  font-size: 1rem;
+  padding-top: 20px;
+  display: block;
+  overflow-y: auto;
+  white-space: nowrap;
+  float: left;
+  height: 100%;
+  padding-bottom: 1rem;
+}
+.stick-to-bottom {
+  position: absolute;
+  height: 60px;
+  /* width: 232px; */
+  background-color: black;
+  text-align: center;
+  bottom: -16px;
+}
+.install-btn {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.install-btn a {
+  color: #b3b3b3;
+  text-decoration: none;
+}
+
+.install-btn a:hover {
+  color: white;
+}
+
+/* scrollbar */
+
+.playlists {
+  position: relative;
+  padding-left: 15%;
+  font-size: 1rem;
+  padding-top: 20px;
+  display: block;
+  overflow-y: auto;
+  white-space: nowrap;
+  float: left;
+  height: 100%;
+  padding-bottom: 1rem;
+}
+.stick-to-bottom {
+  height: 60px;
+  width: 100%;
+  background-color: black;
+  text-align: center;
+}
+.install-btn {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+/* scrollbar */
+/* The emerging W3C standard
+	 that is currently Firefox-only */
+* {
+  scrollbar-width: 5vw;
+  scrollbar-color: #040404 #b3b3b3;
+}
+
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 0.75rem;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(70, 70, 70, 0.76);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(110, 110, 110, 0.76);
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .logo {
+    width: auto;
+    height: 4rem;
+    display: flex;
+    padding-top: 0.5;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+  }
+  .menu ul li {
+    /* padding-top: 0.8rem; */
+    /* font-size: 0.5rem; */
+    /* margin-left: -3rem; */
+  }
+  /* .menu h6 {
+	  padding-left: 15px;
+	  margin-top: 1rem;
+	  margin-bottom: 0.3rem;
+	  font-size: 0.8rem;
+	}*/
+  .menu ul a img {
+    width: 10px;
+    height: 10px;
+  }
+  /* .playlists {
+	  height: 220px;
+	  overflow-y: auto;
+	}*/
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .logo {
+    width: auto;
+    height: 4rem;
+    display: flex;
+    padding-top: 0.5;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+  }
+  .menu ul li {
+    /* padding-top: 0.8rem; */
+    /* font-size: 0.5rem; */
+    /* margin-left: -3rem; */
+  }
+  /* .menu h6 {
+	  padding-left: 15px;
+	  margin-top: 1rem;
+	  margin-bottom: 0.3rem;
+	  font-size: 0.8rem;
+	}*/
+  .menu ul a img {
+    width: 20px;
+    height: 20px;
+  }
+  /* .playlists {
+	  height: 220px;
+	  overflow-y: auto;
+	} */
+
+  .menu h6 .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link {
+    background-color: transparent;
+    border: 0px;
+    font-size: 10px;
+    font-weight: 500;
+    color: whitesmoke;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+
+  .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link:after {
+    display: block;
+    content: "";
+    margin-bottom: 10px;
+    border-bottom: solid 2px limegreen;
+    transform: scaleX(0);
+    transition: 300ms ease-in-out;
+  }
+
+  .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link:hover:after {
+    transform: scaleX(0.5);
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .logo {
+    width: auto;
+    height: 4rem;
+    display: flex;
+    padding-top: 0.5;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+  }
+  .menu ul li {
+    /* padding-top: 0.8rem; */
+    /* font-size: 0.8rem; */
+    /* margin-left: -25px; */
+  }
+  /* .menu h6 {
+	  padding-left: 15px;
+	  margin-top: 3rem;
+	  margin-bottom: 0.3rem;
+	  font-size: 0.7rem;
+	} */
+  /* .playlists {
+	  height: 220px;
+	  overflow-y: auto;
+	} */
+
+  .menu h6 .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link {
+    background-color: transparent;
+    border: 0px;
+    font-size: 10px;
+    font-weight: 500;
+    color: whitesmoke;
+    letter-spacing: 0.1em;
+  }
+
+  .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link:after {
+    display: block;
+    content: "";
+    margin-bottom: 10px;
+    border-bottom: solid 2px limegreen;
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .logo {
+    width: auto;
+    height: 4rem;
+    display: flex;
+    padding-top: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+  }
+  .menu ul li {
+    /* padding-top: 1rem; */
+    /* font-size: 1rem; */
+    margin-left: 0px;
+  }
+  /* .menu h6 {
+	  padding-left: 15px;
+	  margin-top: 1.3rem;
+	  margin-bottom: 0rem;
+	  font-size: 0.9rem;
+	  margin-left: 25px;
+	} */
+  .menu ul a img {
+    width: 20px;
+    height: 20px;
+  }
+  /* .playlists {
+	  height: 220px;
+	  overflow-y: auto;
+	} */
+
+  .menu h6 .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link {
+    background-color: transparent;
+    border: 0px;
+    font-size: 10px;
+    font-weight: 500;
+    color: whitesmoke;
+    letter-spacing: 0.1rem;
+  }
+
+  .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link:after {
+    display: block;
+    content: "";
+    margin-bottom: 10px;
+    border-bottom: solid 2px limegreen;
+    transform: scaleX(0);
+    transition: 300ms ease-in-out;
+  }
+}
