@@ -17,7 +17,7 @@ class App extends React.Component {
           render={(props) => <AlbumPage {...props} />}
         />
         <Route
-          path="/artist/:artistName"
+          path="/artist/:artistId"
           exact
           render={(props) => <ArtistPage {...props} />}
         />

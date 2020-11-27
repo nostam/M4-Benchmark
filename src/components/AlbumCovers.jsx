@@ -3,28 +3,28 @@ import { Col, Row } from "react-bootstrap";
 import { FaSpotify, FaHeart, FaPlay, FaEllipsisH } from "react-icons/fa";
 import { Link } from "react-router-dom";
 export default class AlbumCovers extends Component {
-  fetchQuery = (e) => {
-    this.setState({ artistName: e.target.innerText });
-  };
-  fetchSearch = (input) => {
-    fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${input}`, {
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": "91cbdcb779mshb25e7872769b4fcp110c07jsnbcf1d17bc30b",
-        "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-      },
-    })
-      .then((response) => response.json())
-      .then((album) => {
-        this.setState({ data: album });
-        // search = album.data.map((albumT) => albumT);
-        // generateCards(search);
-      })
+  // fetchQuery = (e) => {
+  //   this.setState({ artistName: e.target.innerText });
+  // };
+  // fetchSearch = (input) => {
+  //   fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${input}`, {
+  //     method: "GET",
+  //     headers: {
+  //       "x-rapidapi-key": "91cbdcb779mshb25e7872769b4fcp110c07jsnbcf1d17bc30b",
+  //       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((album) => {
+  //       this.setState({ data: album });
+  //       // search = album.data.map((albumT) => albumT);
+  //       // generateCards(search);
+  //     })
 
-      .catch((err) => {
-        console.error(err);
-      });
-  };
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // };
   comoponentDidMount = async () => {
     console.log("from ac");
     // this.fetchSearch(this.props.query);
@@ -34,7 +34,7 @@ export default class AlbumCovers extends Component {
     return (
       <Col md={{ span: 10, offset: 1 }}>
         <Row className="my-5">
-          {console.log("state", this.state, "props", this.props)}
+          {console.log("props", this.props)}
           {this.props.data &&
             this.props.data.map((data) => {
               return (

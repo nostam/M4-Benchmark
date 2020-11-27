@@ -13,9 +13,9 @@ import {
 import "../styles/AlbumPage.css";
 import NavBar from "./NavBar";
 import Player from "./Player";
-import AlbumCovers from "./AlbumCovers";
+
 export default class AlbumPage extends Component {
-  state = { loading: true, err: false, albumID: null, album: {} };
+  state = { loading: true, err: false, albumId: null, album: {} };
 
   url = "https://deezerdevs-deezer.p.rapidapi.com/album/";
   // handleNavTab = (e) => {
@@ -59,6 +59,7 @@ export default class AlbumPage extends Component {
       .then(() => this.setState({ loading: false }))
       .catch((err) => {
         this.setState({ err: true });
+        this.setState({ loading: false });
         console.log("An error has occurred:", err);
       });
   };
@@ -67,7 +68,10 @@ export default class AlbumPage extends Component {
   };
   componentDidMount = () => {
     let albumId = this.props.match.params.albumId;
-    albumId ? this.searchDeezerAlbum(albumId) : this.handleErr("Invalid Album");
+    this.setState({ loading: true, alertMsg: "Loading Album Info" });
+    albumId
+      ? this.searchDeezerAlbum(albumId)
+      : this.handleErr("Invalid Album Id");
   };
   // componentDidUpdate = (prevProps, PrevState) => {
   //   if (PrevState.artistName !== this.state.artistName) {
@@ -88,7 +92,7 @@ export default class AlbumPage extends Component {
           )}
           {this.state.loading && (
             <Alert variant="warning" className="my-5 mx-5">
-              Loading Album
+              {this.state.alertMsg}
               <Spinner animation="border" variant="green"></Spinner>
             </Alert>
           )}
@@ -135,7 +139,7 @@ export default class AlbumPage extends Component {
                       <h4 className="mt-2">albums</h4>
                       <h2 id="albumName">{this.state.album.title}</h2>
                       <div className="mt-4 last-line">
-                        <Link to={`/artist/${this.state.album.artist.name}`}>
+                        <Link to={`/artist/${this.state.album.artist.id}`}>
                           <img
                             src={this.state.album.artist.picture_small}
                             alt={this.state.album.artist.name}
