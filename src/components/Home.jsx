@@ -10,7 +10,6 @@ export default class Home extends Component {
   url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=";
   handleNavTab = (e) => {
     this.setState({ artistName: e.target.innerText });
-    console.log("clicked", e);
   };
   searchDeezer = () => {
     Promise.all([
@@ -24,7 +23,6 @@ export default class Home extends Component {
       })
         .then((response) => response.json())
         .then((responseObject) => {
-          console.log(responseObject);
           this.setState({ artistAlbum: responseObject.data }, () =>
             console.log(this.state.artistAlbum)
           );
@@ -47,7 +45,7 @@ export default class Home extends Component {
   render() {
     return (
       <>
-        {console.log("render", this.state)}
+        {/* {console.log("render", this.state)} */}
         <NavBar />
         <Container>
           <Row className="my-4 mx-5 text-white">
