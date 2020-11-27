@@ -5,7 +5,7 @@ import NavBar from "./NavBar";
 import Player from "./Player";
 import AlbumCovers from "./AlbumCovers";
 export default class Home extends Component {
-  state = { err: false, errMsg: null, artistName: "Kalafina" };
+  state = { loading: true, err: false, errMsg: null, artistName: "Kalafina" };
 
   url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=";
   handleNavTab = (e) => {
@@ -23,9 +23,10 @@ export default class Home extends Component {
       })
         .then((response) => response.json())
         .then((responseObject) => {
-          this.setState({ artistAlbum: responseObject.data }, () =>
-            console.log(this.state.artistAlbum)
-          );
+          this.setState({ artistAlbum: responseObject.data }, () => {
+            console.log(this.state.artistAlbum);
+            this.setState({ loading: false });
+          });
         }),
     ])
       .then(() => this.setState({ loading: false }))
@@ -66,6 +67,7 @@ export default class Home extends Component {
           </Row>
           <Row>
             <AlbumCovers
+              loading={this.state.loading}
               query={this.state.artistName}
               data={this.state.artistAlbum}
             />
