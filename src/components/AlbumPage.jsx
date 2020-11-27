@@ -66,6 +66,10 @@ export default class AlbumPage extends Component {
   handleErr = (msg) => {
     this.setState({ err: true, errMsg: msg });
   };
+  handleSelectSong = (e, index) => {
+    e.preventDefault();
+    console.log(e, index);
+  };
   componentDidMount = () => {
     let albumId = this.props.match.params.albumId;
     this.setState({ loading: true, alertMsg: "Loading Album Info" });
@@ -194,7 +198,11 @@ export default class AlbumPage extends Component {
 
                         <tbody>
                           {this.state.album.tracks.data.map((track, index) => (
-                            <tr className="songRow" key={("track-", index)}>
+                            <tr
+                              className="songRow"
+                              key={("track-", index)}
+                              onClick={(e) => this.handleSelectSong(e, index)}
+                            >
                               <th
                                 scope="row"
                                 style={{ verticalAlign: "middle" }}
@@ -237,7 +245,7 @@ export default class AlbumPage extends Component {
             </Row>
           )}
         </Container>
-        <Player />
+        <Player selectedSong={this.state.selectedSong} />
       </>
     );
   }
