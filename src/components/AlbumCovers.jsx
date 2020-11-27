@@ -51,7 +51,7 @@ export default class AlbumCovers extends Component {
                   <FaSpotify className="spotify-card-icon fab fa-spotify" />
                   <span className="overlay-icons">
                     <FaHeart className="heart far fa-heart fa-sm mr-3" />
-                    <Link to={`/album/${data.id}`}>
+                    <Link to={`/album/${data.album.id}`}>
                       <FaPlay className="play fas fa-play fa-1x mr-3" />{" "}
                     </Link>
                     <FaEllipsisH className="fa fa-ellipsis-h fa-sm" />
