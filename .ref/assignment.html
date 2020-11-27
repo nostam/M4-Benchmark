@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <h1>React Spotify</h1>
+
+    <h2>
+      Create a new create-react-app application and refactor your old multi-page Spotify Project in ReactJS.
+      The goal is to implement:
+      <ul>
+        <li>Home Page</li>
+        <li>Artist Page</li>
+        <li>Album Page</li>
+      </ul>
+    </h2>
+
+    <h3>
+      Extra:
+      <ul>
+        <li>When clicking on a song, display the title, the artist and the album picture in the bottom left area</li>
+        <li>Show comments using the usual API (use album id)</li>
+      </ul>
+    </h3>
+
+    <code>
+      <pre>
+      For the Home page, use the https://deezerdevs-deezer.p.rapidapi.com/search?q=whatever to get some albums 
+      For the Album Page, use the https://deezerdevs-deezer.p.rapidapi.com/album/{id} API. You can get the album ID from the
+      search API es.: json.data[0].album.id 
+      
+      For the Artist page, use the https://deezerdevs-deezer.p.rapidapi.com/artist/{id} API You can get the artist ID from the search API es.:
+      json.data[0].artist.id
+      </pre>
+    </code>
+
+    <h2>Hints</h2>
+    <ul>
+      <li>Use react-router-dom to implement navigation (Router, Route, Link...)</li>
+      <li>Create a component for the "Song" that you can reuse everywhere in the App</li>
+      <li>You can easily rework your HTML code for the navbar and the media player and create react components out of it</li>
+      <li>Make navbar and footer (media player) available in every page by not routing them</li>
+    </ul>
+  </body>
+</html>
