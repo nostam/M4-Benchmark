@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,59 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+/*********************** global *********************/
+/* @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap");*/
+:root {
+  --nowplaying-progress: 75%;
+}
+@font-face {
+  font-family: "Circular";
+  src: url("https://www.bu.edu/cdn/fonts/Circular/Circular-Bold.eot");
+  src: url("https://www.bu.edu/cdn/fonts/Circular/Circular-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://www.bu.edu/cdn/fonts/Circular/Circular-Bold.woff")
+      format("woff"),
+    url("https://www.bu.edu/cdn/fonts/Circular/Circular-Bold.ttf")
+      format("truetype");
+  font-style: normal;
+  font-weight: 700;
+}
+body {
+  height: 100vh;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Circular", sans-serif;
+  background: rgb(39, 77, 120);
+  background: linear-gradient(
+    130deg,
+    rgba(39, 77, 120, 1) 0%,
+    rgba(28, 54, 83, 1) 36%,
+    rgba(8, 15, 23, 1) 100%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0px;
+  padding: 0px;
+  /* font-family: 'Nunito Sans', sans-serif; */
+  font-family: "Circular", Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+.mainframe {
+  max-height: calc(100vh - 90px);
+  height: 100%;
+  max-width: 100vw;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow-y: auto;
+}
+.main-content {
+  max-width: calc(100vw - 232px);
+  width: 100%;
+  margin-left: 232px;
+  padding-left: 1rem;
+  overflow-y: auto;
 }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
-import "../styles/Home.css";
+import "../styles/NavBar.css";
 import logo from "../assets/logo.png";
 class NavBar extends Component {
   render() {

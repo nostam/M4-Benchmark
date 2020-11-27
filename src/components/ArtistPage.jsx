@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Alert, Spinner } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Alert,
+  Spinner,
+  Jumbotron,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import {
   FaPlay,
@@ -24,31 +31,6 @@ export default class ArtistPage extends Component {
   };
 
   url = "https://deezerdevs-deezer.p.rapidapi.com/artist/";
-  // handleNavTab = (e) => {
-  //   this.setState({ artistName: e.target.innerText });
-  // };
-  // searchDeezerArtistTop = async (url) => {
-  //   try {
-  //     console.log(url);
-  //     let response = await fetch(url, {
-  //       method: "GET",
-  //       headers: {
-  //         "x-rapidapi-key":
-  //           "74a8e76fbamshe2a8991c5162cf0p18ff5ajsn4ac24c69ec4a",
-  //         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-  //       },
-  //     });
-  //     if (response.ok) {
-  //       let data = await response.json();
-  //       console.log(data);
-  //       this.setState({ topTrackList: data.data });
-  //     }
-  //   } catch (e) {
-  //     this.setState({ loading: false, err: true, errMsg: e.message });
-  //     console.log(e);
-  //   }
-  // };
-
   searchDeezer = (artistName) => {
     Promise.all([
       fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=" + artistName, {
@@ -85,23 +67,21 @@ export default class ArtistPage extends Component {
         .then((response) => response.json())
         .then((responseObject) => {
           this.setState({ artist: responseObject }, () =>
-            setTimeout(() => this.setState({ loading: false }), 2000)
+            console.log(this.state.artist)
           );
           this.searchDeezer(this.state.artist.name);
         }),
-    ])
-      .then(() => this.setState({ loading: false }))
-      .catch((err) => {
-        this.setState({ err: true });
-        this.setState({ loading: false });
-        console.log("An error has occurred:", err);
-      });
+    ]).catch((err) => {
+      this.setState({ err: true });
+      this.setState({ loading: false });
+      console.log("An error has occurred:", err);
+    });
   };
   handleErr = (msg) => {
     this.setState({ err: true, errMsg: msg });
   };
   componentDidMount = () => {
-    this.setState({ loading: true, alertMsg: "Loading Artist Info" });
+    this.setState({ alertMsg: "Loading Artist Info" });
     let artistId = this.props.match.params.artistId;
     artistId
       ? this.searchDeezerArtist(artistId)
@@ -138,7 +118,7 @@ export default class ArtistPage extends Component {
                     className="img-fluid"
                   />
                   <div className="container mt-3 justify-center">
-                    <div className="jumbotron d-flex justify-content-center flex-column">
+                    <Jumbotron className="jumbotron d-flex justify-content-center flex-column">
                       <h6>
                         {Math.floor(Math.random() * 10000000)} MONTHLY LISTENERS
                       </h6>
@@ -175,7 +155,7 @@ export default class ArtistPage extends Component {
                           FOLLOW
                         </a>
                       </div>
-                    </div>
+                    </Jumbotron>
                   </div>
 
                   <div>
@@ -280,6 +260,7 @@ export default class ArtistPage extends Component {
                     <h1>TOP 50</h1>
                     <Row>
                       <AlbumCovers
+                        loading={this.state.loading}
                         query={this.state.artist.name}
                         data={this.state.artistAlbum}
                       />
