@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import "../styles/Player.css";
 import {
   FaPlay,
@@ -14,7 +15,7 @@ import {
   FaVolumeUp,
   FaVolumeDown,
 } from "react-icons/fa";
-export default class Player extends Component {
+class Player extends Component {
   render() {
     return (
       <>
@@ -68,3 +69,4 @@ export default class Player extends Component {
     );
   }
 }
+export default withRouter(Player);

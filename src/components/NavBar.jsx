@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 import "../styles/Home.css";
 import logo from "../assets/logo.png";
-export default class NavBar extends Component {
+class NavBar extends Component {
   render() {
     return (
       <aside>
@@ -72,3 +73,4 @@ export default class NavBar extends Component {
     );
   }
 }
+export default withRouter(NavBar);
