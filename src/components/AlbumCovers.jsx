@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Col, Row } from "react-bootstrap";
 import { FaSpotify, FaHeart, FaPlay, FaEllipsisH } from "react-icons/fa";
+import { Link } from "react-router-dom";
 export default class AlbumCovers extends Component {
   fetchQuery = (e) => {
     this.setState({ artistName: e.target.innerText });
@@ -46,10 +47,13 @@ export default class AlbumCovers extends Component {
                     src={data.album.cover_medium}
                     alt={data.album.title}
                   />
+
                   <FaSpotify className="spotify-card-icon fab fa-spotify" />
                   <span className="overlay-icons">
                     <FaHeart className="heart far fa-heart fa-sm mr-3" />
-                    <FaPlay className="play fas fa-play fa-1x mr-3" />
+                    <Link to={`/album/${data.id}`}>
+                      <FaPlay className="play fas fa-play fa-1x mr-3" />{" "}
+                    </Link>
                     <FaEllipsisH className="fa fa-ellipsis-h fa-sm" />
                   </span>
                   <div>

@@ -10,9 +10,9 @@ export default class Home extends Component {
   url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=";
   handleNavTab = (e) => {
     this.setState({ artistName: e.target.innerText });
-    console.log("clicked", this.state);
+    console.log("clicked", e);
   };
-  fetchDeezer = () => {
+  searchDeezer = () => {
     Promise.all([
       fetch(this.url + this.state.artistName, {
         method: "GET",
@@ -37,11 +37,11 @@ export default class Home extends Component {
       });
   };
   componentDidMount = () => {
-    this.fetchDeezer();
+    this.searchDeezer();
   };
   componentDidUpdate = (prevProps, PrevState) => {
     if (PrevState.artistName !== this.state.artistName) {
-      this.fetchDeezer();
+      this.searchDeezer();
     }
   };
   render() {
@@ -57,7 +57,7 @@ export default class Home extends Component {
               label="Ringo Shinna"
               onClick={(e) => this.handleNavTab(e)}
             >
-              <span>Ringo Shinna</span>
+              Ringo Shinna
             </Col>
             <Col md={4} onClick={(e) => this.handleNavTab(e)}>
               Kōji Tamaki
