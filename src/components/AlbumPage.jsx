@@ -172,7 +172,7 @@ export default class AlbumPage extends Component {
                         <thead>
                           <tr>
                             <th scope="col th-sm">
-                              <span># </span>
+                              <span className="px-1">#</span>
                             </th>
                             <th
                               scope="col th-lg"
@@ -199,7 +199,7 @@ export default class AlbumPage extends Component {
                                 scope="row"
                                 style={{ verticalAlign: "middle" }}
                               >
-                                <span className="track-num">{index}</span>
+                                <span className="track-num px-1">{index}</span>
                                 <img
                                   src="https://img.icons8.com/android/16/b3b3b3/play.png"
                                   className="track-play play-track-btn"
